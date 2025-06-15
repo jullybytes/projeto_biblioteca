@@ -114,6 +114,87 @@ public class Usuario {
             }
         }
     }
+}
+
+public interface ItemBiblioteca {
+    boolean isDisponivel();
+    void realizarEmprestimo();
+    void realizarDevolucao();
+    void exibirInformacoes();
+    String getTitulo();
+}
+
+public class LivroFisico extends Livro implements ItemBiblioteca {
+    private String localizacaoPrateleira;
+
+    public LivroFisico(String Titulo, String Autor, int AnoPublicacao, String localizacaoPrateleira) {
+        super(Titulo, Autor, AnoPublicacao);
+        this.localizacaoPrateleira = localizacaoPrateleira;
+    }
+
+    public String getlocalizacaoPrateleira() {
+        return localizacaoPrateleira;
+    }
+
+    public void setlocalizacaoPrateleira(String localizacaoPrateleira) {
+        this.localizacaoPrateleira = localizacaoPrateleira;
+    }
+
+    public void ExibirDetalhes() {
+        System.out.printIn("[Livro Físico]");
+        System.out.printIn("Titulo: " + getTitulo());
+        System.out.printIn("Autor: " + getAutor());
+        System.out.printIn("Ano: " + getAnoPublicacao());
+        System.out.printIn("Disponivel: " + isDisponivel());
+        System.out.printIn("Localização: " + localizacaoPrateleira);
+    }
+
+    public boolean isDisponivel() {
+        return super.isDisponivel();
+    }
+
+    public void realizarEmprestimo() {
+        super.emprestar();
+    }
+
+    public void realizarDevolucao() {
+        super.devolver();
+    }
+
+    public void exibirInformacoes() {
+        ExibirDetalhes();
+    }
+
+    public String getTitulo() {
+        return super.getTitulo();
+    }
+}
+
+public class Ebook extends Livro implements ItemBiblioteca {
+    private double tamanhoArquivoMB;
+    private String formato;
+
+    public Ebook(String Titulo, String Autor, int AnoPublicacao, double tamanhoArquivoMB, String formato) {
+        super(Titulo, Autor, AnoPublicacao);
+        this.tamanhoArquivoMB = tamanhoArquivoMB;
+        this.formato = formato;
+    }
+
+    public double getTamanhoArquivoMB() {
+        return tamanhoArquivoMB;
+    }
+
+    public void setTamanhoArquivoMB(double tamanhoArquivoMB) {
+        this.tamanhoArquivoMB = tamanhoArquivoMB;
+    }
+
+    public String getFormato() {
+        return formato;
+    }
+
+    public void setFormato(String formato) {
+        this.formato = formato;
+    }
 
     
 }
