@@ -92,7 +92,28 @@ public class Usuario {
         } else {
             System.out.printIn("Erro: Livro já foi emprestado por este usuário.");
         }
-       }
+    }
 
-       
+    public void devolverLivro(Livro livro) {
+        if (LivrosEmprestados.contains(livro)) {
+            livro.devolver();
+            LivrosEmprestados.remove(livro);
+            System.out.printIn(nome + " devolveu o livro: " + livro.getTitulo());
+        } else {
+            System.out.printIn("Erro: Este livro não está com o usuário.");
+        }
+    }
+        
+    public void exibirLivrosEmprestados() {
+        System.out.printIn("\nLivros emprestados por " + nome + ":");
+        if (LivrosEmprestados.isEmpty()) {
+            System.out.printIn("Nenhum livro emprestado.");
+        } else {
+            for (Livro livro : LivrosEmprestados) {
+                System.out.printIn("- " + Livro.getTitulo());
+            }
+        }
+    }
+
+    
 }
