@@ -140,6 +140,7 @@ public class LivroFisico extends Livro implements ItemBiblioteca {
         this.localizacaoPrateleira = localizacaoPrateleira;
     }
 
+    @Override
     public void ExibirDetalhes() {
         System.out.printIn("[Livro Físico]");
         System.out.printIn("Titulo: " + getTitulo());
@@ -149,22 +150,27 @@ public class LivroFisico extends Livro implements ItemBiblioteca {
         System.out.printIn("Localização: " + localizacaoPrateleira);
     }
 
+    @Override
     public boolean isDisponivel() {
         return super.isDisponivel();
     }
 
+    @Override
     public void realizarEmprestimo() {
         super.emprestar();
     }
 
+    @Override
     public void realizarDevolucao() {
         super.devolver();
     }
 
+    @Override
     public void exibirInformacoes() {
         ExibirDetalhes();
     }
 
+    @Override
     public String getTitulo() {
         return super.getTitulo();
     }
@@ -196,5 +202,38 @@ public class Ebook extends Livro implements ItemBiblioteca {
         this.formato = formato;
     }
 
-    
+    public void ExibirDetalhes() {
+        System.out.printIn("[Ebook]");
+        System.out.printIn("Titulo: " + getTitulo());
+        System.out.printIn("Autor: " + getAutor());
+        System.out.printIn("Ano: " + getAnoPublicacao());
+        System.out.printIn("Formato: " + formato);
+        System.out.printIn("Tamanho do Arquivo: " + tamanhoArquivoMB + "MB");
+        System.out.printIn("Disponivel: " + isDisponivel());
+    }
+
+    @Override
+    public boolean isDisponivel() {
+        return super.isDisponivel();
+    }
+
+    @Override
+    public void realizarEmprestimo() {
+        super.emprestar();
+    }
+
+    @Override
+    public void realizarDevolucao() {
+        super.devolver();
+    } 
+
+    @Override
+    public exibirInformacoes() {
+        ExibirDetalhes();
+    }
+
+    @Override
+    public String getTitulo() {
+        return super.getTitulo();
+    }
 }
