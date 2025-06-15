@@ -60,7 +60,25 @@ public abstract void ExibirDetalhes();
 }
 
 public class Usuario {
-    private String nome;
+    private String Nome;
     private String idUsuario;
-    private ArrayList<Livro> livrosEmprestados;
+    private ArrayList<Livro> LivrosEmprestados;
+
+     public Usuario(String Nome, String idUsuario){
+        this.Nome = Nome;
+        this.idUsuario = idUsuario;
+        this.livrosEmprestados = new ArrayList<>();
+     }
+
+      public String getNome(){
+        return Nome;
+      }
+
+      public String getidUsuario(){
+        return idUsuario;
+      }
+
+       public ArrayList<Livro> getLivrosEmprestados(){
+        return LivrosEmprestados;
+       }
 }
