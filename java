@@ -81,4 +81,18 @@ public class Usuario {
        public ArrayList<Livro> getLivrosEmprestados(){
         return LivrosEmprestados;
        }
+
+       public void EmprestarLivro (Livro livro) {
+        if (livro.isDisponivel() && !LivrosEmprestados.contains (Livro)) {
+            livro.emprestar();
+            LivrosEmprestados.add(livro);
+            System.out.printIn(nome + "emprestou o livro: " + livro.getTitulo());
+        } else if (!livro.isDisponivel()) {
+            System.out.printIn("Erro: Livro '" + Livro.getTitulo() + "' não está disponivel.");
+        } else {
+            System.out.printIn("Erro: Livro já foi emprestado por este usuário.");
+        }
+       }
+
+       
 }
